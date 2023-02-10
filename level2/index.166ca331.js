@@ -80,6 +80,9 @@ function changeFireActiveStatus(index, status) {
     gridMapHelper.fires[index].active = status;
     fires[index].setFireVisibility(status);
 }
+function firesVisualRestart() {
+    for(let i = 0; i < fires.length; i++)fires[i].setFireVisibility(true);
+}
 scene.add(plane);
 scene.add(actor);
 async function andarFrente(amount) {
@@ -270,6 +273,7 @@ phaseGeneration.push(()=>{
         actor.getObjectByName("eve").rotation.set(0, 0, 0);
         objectives[0].visible = true;
         gridMapHelper.restartFires();
+        firesVisualRestart();
         setFireStates();
         extinguisherUses = 1;
         displayExtinguisherUses();
@@ -364,6 +368,7 @@ phaseGeneration.push(()=>{
         objectives[0].visible = true;
         objectives[1].visible = true;
         gridMapHelper.restartFires();
+        firesVisualRestart();
         setFireStates();
         extinguisherUses = 1;
         displayExtinguisherUses();
@@ -454,6 +459,7 @@ phaseGeneration.push(()=>{
         objectives[0].visible = true;
         objectives[1].visible = true;
         gridMapHelper.restartFires();
+        firesVisualRestart();
         setFireStates();
         extinguisherUses = 1;
         displayExtinguisherUses();
@@ -575,6 +581,7 @@ phaseGeneration.push(()=>{
         objectives[0].visible = true;
         objectives[1].visible = true;
         gridMapHelper.restartFires();
+        firesVisualRestart();
         setFireStates();
         extinguisherUses = 1;
         displayExtinguisherUses();
@@ -717,6 +724,7 @@ phaseGeneration.push(()=>{
         objectives[0].visible = true;
         objectives[1].visible = true;
         gridMapHelper.restartFires();
+        firesVisualRestart();
         setFireStates();
         extinguisherUses = 1;
         displayExtinguisherUses();
@@ -874,6 +882,7 @@ phaseGeneration.push(()=>{
         objectives[0].visible = true;
         objectives[1].visible = true;
         gridMapHelper.restartFires();
+        firesVisualRestart();
         setFireStates();
         extinguisherUses = 1;
         displayExtinguisherUses();
@@ -1052,6 +1061,7 @@ phaseGeneration.push(()=>{
         objectives[1].visible = true;
         objectives[2].visible = true;
         gridMapHelper.restartFires();
+        firesVisualRestart();
         setFireStates();
         extinguisherUses = 1;
         displayExtinguisherUses();
@@ -1086,6 +1096,7 @@ function removeObjects(crystals, walls, traps, fires) {
     crystals = undefined;
     walls = undefined;
     traps = undefined;
+    fires = undefined;
 }
 function animate() {
     if (fires) for(let i = 0; i < fires.length; i++)fires[i].update(fireClock);
@@ -2328,9 +2339,9 @@ function $0c161e84c454184c$export$2e2bcd8739ae039(code, limit = 0) {
 });
 
 
-var $22253ca29da7bb8e$exports = {};
+var $1236c225f2f56f11$exports = {};
 
-(parcelRequire("2JpsI")).register(JSON.parse('{"gktNi":"index.46c922a2.js","GGIiK":"fire.e088cc30.png","2x2Z6":"stone.543880d2.jpg","fTCWt":"index.32ff7c53.js"}'));
+(parcelRequire("2JpsI")).register(JSON.parse('{"gktNi":"index.166ca331.js","GGIiK":"fire.e088cc30.png","2x2Z6":"stone.543880d2.jpg","5Spd2":"index.beef56a8.js"}'));
 
 
 parcelRequire("apYFO");

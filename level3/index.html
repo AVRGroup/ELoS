@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="https://avrgroup.github.io/ELoS/favicon.ae8f28de.ico" type="image/x-icon">
         <link rel="stylesheet" href="https://avrgroup.github.io/ELoS/level1/index.bff5fb7b.css">
-        <title>ELoS - Nível 2</title>
+        <title>ELoS - Nível 3</title>
     </head>
     <body>
         <div class="container-fluid">
@@ -16,16 +16,10 @@
 
                     </canvas>
                     <div class="position-absolute top-0 start-0 ms-3">
-                        <h2 id="phaseTitle" class="bg-warning mb-0">Nível 2 - Fase x de X</h2>
+                        <h2 id="phaseTitle" class="bg-warning mb-0">Nível 3 - Fase x de X</h2>
                         <p id="phaseObjective" class="bg-info mt-0 mb-0">Faça algo</p>
                         <h2 id="winMessage" class="bg-success mt-0 invisible">Fase Concluída</h2>
                         <button id="advanceBtn" type="button" class="btn btn-primary invisible">Avançar</button>
-                    </div>
-                    <div class="position-absolute bottom-50 bottom-md-0 start-0 ms-3">
-                        <div class="d-flex">
-                            <img src="https://avrgroup.github.io/ELoS/fire-extinguisher.a9d80553.png" alt="Extintor de Incêndio" width="40" height="40">
-                            <h2 id="extinguisherUses" class="text-light">xN</h2>
-                        </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
@@ -56,14 +50,16 @@
                                                     girarEsquerda()<br>
                                                     girarDireita()<br>
                                                     darMeiaVolta()<br>
-                                                    apagarFogo()<br>
+                                                    desativarAzul()<br>
+                                                    desativarVermelho()<br>
                                                     coletarCristal()<br>
                                                 </div>
                                                 <div class="col-3 text-primary">
-                                                    pegandoFogo()<br>
+                                                    laserAzul()<br>
                                                 </div>
                                                 <div class="col-4 text-success">
                                                     se(condição){<br>&nbsp;ação()<br>}<br>
+                                                    senão{<br>&nbsp;ação()<br>}<br>
                                                 </div>
                                             </div>
                                         </code>
@@ -111,5 +107,5 @@
         </div>        
     </body>
     <script type="module" src="https://avrgroup.github.io/ELoS/level1/index.b73fbb5b.js"></script>
-    <script type="module" src="https://avrgroup.github.io/ELoS/level2/index.166ca331.js"></script>
+    <script type="module" src="https://avrgroup.github.io/ELoS/level3/index.9dd22fb2.js"></script>
 </html>

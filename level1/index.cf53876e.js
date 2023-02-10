@@ -665,7 +665,7 @@ function $8cf0fc8944b9cdfc$export$ce33b877b675017a(nameInput, ageInput, subBtn, 
                         `${hour < 10 ? "0" + hour : hour}:${min < 10 ? "0" + min : min}:${seg < 10 ? "0" + seg : seg}`
                     ]
                 ];
-                let success = true /*await uploadLog(data)*/ ;
+                let success = await $8cf0fc8944b9cdfc$var$uploadLog(data);
                 if (success) {
                     console.log(data);
                     window.location.href = redirectPath;

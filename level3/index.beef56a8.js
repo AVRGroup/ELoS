@@ -59925,6 +59925,7 @@ class $229855a44a9d0678$export$2e2bcd8739ae039 {
         this.obstacles = [];
         this.traps = [];
         this.fires = [];
+        this.lasers = [];
     }
     createGridPlane() {
         const planeGeometry = new $49pUz.PlaneGeometry(this.getMultiplier() * this.divisions, this.getMultiplier() * this.divisions, this.divisions, this.divisions);
@@ -60065,12 +60066,47 @@ class $229855a44a9d0678$export$2e2bcd8739ae039 {
     clearFires() {
         this.fires = [];
     }
+    addLaser(x, z) {
+        const laser = {
+            id: this.lasers.length,
+            x: x,
+            z: z,
+            active: true,
+            state: "red"
+        };
+        this.lasers.push(laser);
+    }
+    laserCollision(position) {
+        const laserFiltered = this.lasers.filter((laser)=>laser.active == true);
+        for(let i = 0; i < laserFiltered.length; i++){
+            if (Math.abs(this.getXCoordFromGlobalPosition(position.x) - laserFiltered[i].x) == 1 && this.getZCoordFromGlobalPosition(position.z) == laserFiltered[i].z || this.getXCoordFromGlobalPosition(position.x) == laserFiltered[i].x && Math.abs(this.getZCoordFromGlobalPosition(position.z) - laserFiltered[i].z) == 1) return laserFiltered[i].id;
+            else continue;
+        }
+        return null;
+    }
+    detectLaser(position, state) {
+        const laserFiltered = this.lasers.filter((laser)=>laser.state == state);
+        for(let i = 0; i < laserFiltered.length; i++){
+            if (Math.abs(this.getXCoordFromGlobalPosition(position.x) - laserFiltered[i].x) == 1 && this.getZCoordFromGlobalPosition(position.z) == laserFiltered[i].z || this.getXCoordFromGlobalPosition(position.x) == laserFiltered[i].x && Math.abs(this.getZCoordFromGlobalPosition(position.z) - laserFiltered[i].z) == 1) return laserFiltered[i].id;
+            else continue;
+        }
+        return null;
+    }
+    restartLasers() {
+        for(let i = 0; i < this.lasers.length; i++){
+            this.lasers[i].active = true;
+            this.lasers[i].state = "blue";
+        }
+    }
+    clearLasers() {
+        this.lasers = [];
+    }
 }
 
 });
 
-var $e8443a04d4e0b28d$exports = {};
+var $b01a5420381def85$exports = {};
 
-(parcelRequire("2JpsI")).register(JSON.parse('{"fTCWt":"index.32ff7c53.js","gkOf2":"eve.1d379c98.glb","hpjRp":"crystal.06b47171.jpg","9XNcj":"crystal.b012d479.obj"}'));
+(parcelRequire("2JpsI")).register(JSON.parse('{"5Spd2":"index.beef56a8.js","gkOf2":"eve.1d379c98.glb","hpjRp":"crystal.06b47171.jpg","9XNcj":"crystal.b012d479.obj"}'));
 
 
