@@ -2341,7 +2341,7 @@ function $0c161e84c454184c$export$2e2bcd8739ae039(code, limit = 0) {
 
 var $1236c225f2f56f11$exports = {};
 
-(parcelRequire("2JpsI")).register(JSON.parse('{"gktNi":"index.166ca331.js","GGIiK":"fire.e088cc30.png","2x2Z6":"stone.543880d2.jpg","5Spd2":"index.beef56a8.js"}'));
+(parcelRequire("2JpsI")).register(JSON.parse('{"gktNi":"index.4fcf40f2.js","GGIiK":"fire.e088cc30.png","2x2Z6":"stone.543880d2.jpg","5Spd2":"index.b3a75810.js"}'));
 
 
 parcelRequire("apYFO");

@@ -55803,6 +55803,10 @@ function $4a12bffc769d698d$export$43ac269cfac29bfc(actor, amount, gridMapHelper,
                 consoleElement.innerText += "Aviso: Rob\xf4 foi queimado!\n";
                 sceneProperties.cancelExecution = true;
             }
+            if (gridMapHelper.laserCollision(actor.position)) {
+                consoleElement.innerText += "Aviso: Rob\xf4 foi queimado pelo laser!\n";
+                sceneProperties.cancelExecution = true;
+            }
             if (!positionAlmostEqual(actor.position, finalPosition) && !sceneProperties.cancelExecution) {
                 actor.position.lerp(finalPosition, alpha);
                 alpha += 0.001;
@@ -60079,10 +60083,10 @@ class $229855a44a9d0678$export$2e2bcd8739ae039 {
     laserCollision(position) {
         const laserFiltered = this.lasers.filter((laser)=>laser.active == true);
         for(let i = 0; i < laserFiltered.length; i++){
-            if (Math.abs(this.getXCoordFromGlobalPosition(position.x) - laserFiltered[i].x) == 1 && this.getZCoordFromGlobalPosition(position.z) == laserFiltered[i].z || this.getXCoordFromGlobalPosition(position.x) == laserFiltered[i].x && Math.abs(this.getZCoordFromGlobalPosition(position.z) - laserFiltered[i].z) == 1) return laserFiltered[i].id;
+            if (this.getXCoordFromGlobalPosition(position.x) == laserFiltered[i].x && this.getZCoordFromGlobalPosition(position.z) == laserFiltered[i].z) return true;
             else continue;
         }
-        return null;
+        return false;
     }
     detectLaser(position, state) {
         const laserFiltered = this.lasers.filter((laser)=>laser.state == state);
@@ -60107,6 +60111,6 @@ class $229855a44a9d0678$export$2e2bcd8739ae039 {
 
 var $b01a5420381def85$exports = {};
 
-(parcelRequire("2JpsI")).register(JSON.parse('{"5Spd2":"index.beef56a8.js","gkOf2":"eve.1d379c98.glb","hpjRp":"crystal.06b47171.jpg","9XNcj":"crystal.b012d479.obj"}'));
+(parcelRequire("2JpsI")).register(JSON.parse('{"5Spd2":"index.b3a75810.js","gkOf2":"eve.1d379c98.glb","hpjRp":"crystal.06b47171.jpg","9XNcj":"crystal.b012d479.obj"}'));
 
 

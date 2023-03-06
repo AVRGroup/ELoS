@@ -541,6 +541,14 @@ advanceBtn.addEventListener("click", (e)=>{
         logModal.show();
     }
 });
+const finishEarlierButton = document.getElementById("finishEarlier");
+finishEarlierButton.addEventListener("click", (e)=>{
+    if (confirm("Deseja realmente finalizar a pr\xe1tica?")) {
+        clearInterval(timerUpadate);
+        (0, $c6e6z.configureDataAndUpload)(document.getElementById("name"), document.getElementById("age"), document.getElementById("subBtn"), sceneProperties.timer, "../", `Nível 1/Fase ${sceneProperties.phase + 1}`);
+        logModal.show();
+    }
+});
 //Running level 1
 (0, $6mhZf.resizeCanvasToDisplaySize)(renderer, camera);
 phaseGeneration[sceneProperties.phase]();
@@ -630,14 +638,18 @@ function $8cf0fc8944b9cdfc$export$cbae8a5783c0845c(time, timerElement) {
     timerElement.innerText = `Tempo: ${hour < 10 ? "0" + hour : hour}:${min < 10 ? "0" + min : min}:${seg < 10 ? "0" + seg : seg}`;
 }
 async function $8cf0fc8944b9cdfc$var$uploadLog(data) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", $8cf0fc8944b9cdfc$var$FORM_ACCESS, true);
-    let formData = new FormData();
-    for(let i = 0; i < data.length; i++)formData.append(data[i][0], data[i][1]);
-    xhr.send(formData);
-    return true;
+    return new Promise((resolve, reject)=>{
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", $8cf0fc8944b9cdfc$var$FORM_ACCESS, true);
+        let formData = new FormData();
+        for(let i = 0; i < data.length; i++)formData.append(data[i][0], data[i][1]);
+        xhr.onreadystatechange = ()=>{
+            if (xhr.readyState === XMLHttpRequest.DONE) resolve(true);
+        };
+        xhr.send(formData);
+    });
 }
-function $8cf0fc8944b9cdfc$export$ce33b877b675017a(nameInput, ageInput, subBtn, time, redirectPath, level) {
+async function $8cf0fc8944b9cdfc$export$ce33b877b675017a(nameInput, ageInput, subBtn, time, redirectPath, level) {
     subBtn.addEventListener("click", async ()=>{
         let hour = Math.floor(time / 3600);
         let min = Math.floor(time / 60) % 60;
